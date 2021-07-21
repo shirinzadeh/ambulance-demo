@@ -1,0 +1,41 @@
+.navbar {
+   @include flex;
+   flex-direction: column;
+   width: 271px;
+   min-height: 100vh;
+
+   &-brand {
+      background-color: $gray-dark;
+
+      img {
+         display: block;
+         width: 100%;
+      }
+   }
+
+   .offcanvas {
+      height: 100%;
+   }
+
+   &-nav {
+      background-color: $red;
+      height: 100%;
+
+      .nav-link {
+         display: block;
+         height: 100%;
+         padding: 1rem 1.25rem 1rem 3rem;
+         color: $white;
+         @include transition;
+
+         &.active {
+            background-color: lighten($color: $red, $amount: 7);
+         }
+
+         &:hover {
+            background-color: darken($color: $red, $amount: 7);
+            @include transition;
+         }
+      }
+   }
+}

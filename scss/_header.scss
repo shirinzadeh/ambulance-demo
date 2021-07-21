@@ -1,0 +1,19 @@
+.header {
+   padding: 1.06rem 0.94rem;
+   background-color: $gray-dark;
+   border: {
+      left: 1px solid $line-color;
+      bottom: 1px solid $line-color;
+   }
+   
+   .navbar-toggler {
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+   
+      i {
+         font-size: 1rem;
+      }
+   }
+}

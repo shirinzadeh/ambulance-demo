@@ -1,0 +1,32 @@
+@mixin transition($args: all 0.3s ease 0s) {
+   -webkit-transition: $args;
+       -moz-transition: $args;
+         -o-transition: $args;
+           transition: $args;
+ }
+
+ // Flexbox
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+//Transform
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+      -moz-transform: $transform;
+      -ms-transform: $transform;
+        -o-transform: $transform;
+          transform: $transform;
+}

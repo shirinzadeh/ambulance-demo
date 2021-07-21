@@ -1,0 +1,36 @@
+//Colors
+.bg-darkgray {
+   background-color: darken($bg-color, 7) !important;
+}
+
+.app {
+   @include flex;
+   flex: 1;
+}
+
+.query {
+   padding: .56rem 1.125rem;
+   background-color: $green;
+   border-radius: 1.25rem;
+   color: $white;
+   width: 100%;
+
+   &:not(:last-child) {
+      margin-bottom: 1rem;
+   }
+
+   .patient {
+      font-weight: $fw-bold;
+   }
+}
+
+.hide {
+   display: none !important;
+}
+.show {
+   display: block !important;
+}
+
+[draggable="true"] {
+   cursor: grab;
+}

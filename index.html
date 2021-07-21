@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ambulance Admin Panel</title>
+   <!-- Fonts  -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+   <!-- Fontawesome  -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+   <div class="app">
+      <!-- Offcanvas menu  -->
+      <nav class="navbar">
+         <a href="#" class="navbar-brand"><img src="img/logo.svg" alt="Logo"></a>
+         <div class="offcanvas">
+            <ul class="navbar-nav">
+               <div class="nav-item">
+                  <a href="#" class="nav-link active">Sorğular</a>
+               </div>
+               <div class="nav-item">
+                  <a href="#" class="nav-link">Xəritə</a>
+               </div>
+               <div class="nav-item">
+                  <a href="#" class="nav-link">Tarixçə</a>
+               </div>
+            </ul>
+         </div>
+      </nav>
+      <!-- End Offcanvas menu  -->
+
+      <!-- Navbar icon  -->
+      <div style="flex: 1;">
+         <header class=" header">
+            <button class="navbar-toggler" id="hideMenu">
+               <i class="fas fa-bars"></i>
+            </button>
+         </header>
+
+         <main class="main">
+            <div class="list">
+               <div class="list__title">Sorğular</div>
+               <div class="list__content">
+                  <div class="query" draggable="true">
+                     <p class="patient">Furkan Yıldız</p>
+                     <p>23 yaş,</p>
+                     <p>Nəfəs darlığı, Asma</p>
+                     <p>+994502000497</p>
+                  </div>
+                  <div class="query" draggable="true">
+                     <p class="patient">Sevinc Sevinc</p>
+                     <p>22 yaş,</p>
+                     <p>Ürək bulanması,</p>
+                     <p>+994502000497</p>
+                  </div>
+                  <div class="query hide" draggable="true">
+                     <p class="patient">Azər Murad</p>
+                     <p>40 yaş,</p>
+                     <p>Xərçəng</p>
+                     <p>+994502000497</p>
+                  </div>
+               </div>
+            </div>
+            <div class="list">
+               <div class="list__title">Aktiv TTY</div>
+               <div class="list__content">
+                  <div class="ambulance" id="ambulance">
+                     <div class="ambulance__name">Ambulance TK-523</div>
+                     <div class="ambulance__active">
+                        <!-- <i class="far fa-hand-point-up drop-icon"></i> -->
+                     </div>
+                  </div>
+                  <div class="ambulance" id="ambulance">
+                     <div class="ambulance__name">Ambulance TK-524</div>
+                     <div class="ambulance__active">
+                        <!-- <i class="far fa-hand-point-up drop-icon"></i> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="list">
+               <div class="list__title">Təyin edildi</div>
+               <div class="list__content">
+               </div>
+            </div>
+            <div class="list">
+               <div class="list__title">Əməliyyat başlanıldı</div>
+               <div class="list__content">
+               </div>
+            </div>
+         </main>
+
+         <button class="btn btn--query" id="addQuery">
+            <i class="fas fa-user-plus"></i>
+         </button>
+         <button class="btn btn--action" id="removeAction">
+            <i class="fas fa-undo"></i>
+         </button>
+      </div>
+   </div>
+
+   <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+.btn {
+   border: none;
+   box-shadow: 0px 4px 24px rgba(24, 28, 31, 0.2);
+   padding: 1rem;
+   font-size: 1.5rem;
+   border-radius: 50%;
+   color: $white;
+   position: fixed;
+   right: 3%;
+   cursor: pointer;
+
+   &--query {
+      bottom: 15%;
+      background-color: $green;
+   }
+
+   &--action {
+      bottom: 6%;
+      background-color: $red;
+   }
+
+   i { 
+      @include transition;
+   }
+
+   &:hover {
+      i {
+         @include transform(rotate(-30deg));
+         @include transition;
+      }
+   }
+}
