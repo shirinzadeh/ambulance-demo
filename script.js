@@ -11,7 +11,7 @@ const listContents = document.querySelectorAll('.list__content');
 const listItems = document.querySelectorAll('.query');
 const ambulances = document.querySelectorAll('.ambulance');
 const ambulanceActive = document.querySelectorAll('.ambulance__active')
-draggedItem = null;
+draggedItem = null; //query
 draggedAmbulance = null
 
 listItems.forEach(item => {
@@ -31,23 +31,15 @@ listItems.forEach(item => {
       }, 0);
    })
 
-   ambulanceActive.forEach((act, i) => {
+   ambulanceActive.forEach(act => {
       // console.log(act,i)
-      act.addEventListener('dragover', (e) => {
-         e.preventDefault();
-      })
+      act.addEventListener('dragover', e => e.preventDefault())
       act.addEventListener('dragenter', (e) => {
          e.preventDefault();
          act.style.backgroundColor = "rgba(255,255,255,)" //change list background color while dragging item
       })
 
-      act.addEventListener('dragleave', (e) => {
-         // console.log(e)
-      })
-
       act.addEventListener('dragend', (e) => {
-      
-
          ambulances.forEach(ambulance => {
             ambulance.addEventListener('dragstart', () => {
                draggedAmbulance = ambulance;
@@ -57,7 +49,6 @@ listItems.forEach(item => {
                   ambulance.classList.add('hide') //hide list item when drag
                }, 0);
 
-               console.log(ambulance)
             })
          
             ambulance.addEventListener('dragend', () => {
@@ -69,9 +60,7 @@ listItems.forEach(item => {
             })
          
             listContents.forEach((list, i) => {
-               list.addEventListener('dragover', (e) => {
-                  e.preventDefault();
-               })
+               list.addEventListener('dragover', e => e.preventDefault());
                list.addEventListener('dragenter', (e) => {
                   e.preventDefault();
                   list.style.backgroundColor = "#e6e6e6"
@@ -81,25 +70,24 @@ listItems.forEach(item => {
                   list.style.backgroundColor = "#efefef"
                })
          
-               list.addEventListener('dragend', (e) => {
-               })
-         
                list.addEventListener('drop', (e) => {  
                   e.preventDefault();
                   if (draggedAmbulance) {
                      list.append(draggedAmbulance); 
-                  } //add dragged list item to another list
-                  // act.removeChild(act.firstChild) //remove icon when dropped element        
+                  }      
                })
             });
          });
       })
 
-      act.addEventListener('drop', (e) => {  
-         e.preventDefault();
-         act.append(draggedItem); //add dragged list item to another list
-         act.parentElement.setAttribute('draggable', 'true') //Make active ambulance draggable after getting query
+      act.addEventListener('dragover', e => e.preventDefault());
+      act.addEventListener('dragenter', e => e.preventDefault());
 
+      act.addEventListener('drop', (e) => {  
+         if(draggedItem) {
+            act.append(draggedItem); //add dragged list item to another list
+            act.parentElement.setAttribute('draggable', 'true') //Make active ambulance draggable after getting query
+         }
       })
    });
 });
@@ -116,8 +104,14 @@ const lists = document.querySelectorAll('.list');
 removeAction.addEventListener('click', () => {
    const listsContentArr = Array.from(listContents) //Convert nodelist to array
    let assignedAmbulance = listsContentArr[listsContentArr.length-1].lastElementChild; 
-
-   assignedAmbulance.remove(); //Remove ambulance
-   listsContentArr[1].appendChild(assignedAmbulance) //Insert to first index of list array
    
+   if(assignedAmbulance) {
+      //Remove query inside ambulance
+      assignedAmbulance.lastElementChild.children[0].remove(); 
+      //Remove ambulance
+      assignedAmbulance.remove();
+      //Insert to first index of list array
+      listsContentArr[1].appendChild(assignedAmbulance) 
+      assignedAmbulance.setAttribute('draggable', 'false') 
+   }
 })
